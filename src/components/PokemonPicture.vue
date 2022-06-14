@@ -15,14 +15,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { usePokemons } from '../composables/usePokemons';
 
-const props = defineProps<{
-    pokemonId: number;
-    showPokemon: boolean;
-}>();
-
-const imgSrc = computed(() => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${ props.pokemonId }.svg` );
+const { showPokemon, imgSrc } = usePokemons();
 
 </script>
 

@@ -3,7 +3,7 @@
     <ul>
       <li v-for="pokemon in pokemons" 
           :key="pokemon.id"
-          @click="$emit( 'selectionPokemon', pokemon.id )">
+          @click="checkAnswer( pokemon.id )">
           {{ pokemon.name }}
       </li>
     </ul>
@@ -11,11 +11,9 @@
 </template>
 
 <script setup lang="ts">
-import { Pokemon } from '../interfaces/pokemon';
+import { usePokemons } from '../composables/usePokemons';
 
-defineProps<{
-  pokemons: Pokemon[]
-}>();
+const { pokemonArr: pokemons, checkAnswer } = usePokemons();
 
 </script>
 
